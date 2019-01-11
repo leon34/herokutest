@@ -159,11 +159,9 @@ var apiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
 
 	$.ajax({
         url: newurl,
+        dataType: "json",
         beforeSend: function(xhr){
 	        xhr.setRequestHeader('x-api-key', apiKey);
-        },
-        headers: {
-            "x-api-key": "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On"
         },
         success: function(data){
             console.log("debugging")
