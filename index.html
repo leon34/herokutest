@@ -155,10 +155,12 @@ function TokenSigning() {
 
 <script>
 	var newurl = "https://vast-refuge-72998.herokuapp.com/https://mercury.postlight.com/parser?url=https://feedforall.com/sample.xml";
+var apiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
 
 	$.ajax({
         url: newurl,
         beforeSend: function(xhr){
+	        xhr.setRequestHeader('x-api-key', apiKey);
         },
         headers: {
             "x-api-key": "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On"
