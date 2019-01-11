@@ -154,18 +154,14 @@ function TokenSigning() {
 </div>
 
 <script>
-	var newurl = "https://mercury.postlight.com/parser?" +
-             "http://www.aweber.com/blog/feed/";
-	var apiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
+	var newurl = "https://mercury.postlight.com/parser?http://www.aweber.com/blog/feed/";
 
 
 	$.ajax({
         url: newurl,
         dataType: "json",
-
+		method: "GET"
         beforeSend: function(xhr){
-            console.log(apiKey);
-            xhr.setRequestHeader('x-api-key', apiKey);
         },
         headers: {
             "x-api-key": "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On",
