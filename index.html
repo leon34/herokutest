@@ -154,7 +154,12 @@ function TokenSigning() {
 </div>
 
 <script>
-	var newurl = "https://cors-anywhere.herokuapp.com/https://mercury.postlight.com/parser?url=https://feedforall.com/sample.xml";
+jQuery.ajaxPrefilter(function(options) {
+    if (options.crossDomain && jQuery.support.cors) {
+        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    }
+});
+	var newurl = "https://mercury.postlight.com/parser?url=https://feedforall.com/sample.xml";
 var apiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
 
 	$.ajax({
