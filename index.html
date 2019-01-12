@@ -164,7 +164,7 @@ var apiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
 
 	$.ajax({
         url: newurl,
-        dataType: "xml",
+        dataType: "jsonp",
         beforeSend: function(xhr){
 	        xhr.setRequestHeader('x-api-key', apiKey);
         },
