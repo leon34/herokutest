@@ -167,6 +167,7 @@ var apiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
         dataType: "jsonp",
         beforeSend: function(xhr){
 	        xhr.setRequestHeader('x-api-key', apiKey);
+	        xhr.setRequestHeader('access-Control-Request-Headers', 'x-requested-with');	        
         },
         success: function(data){
             console.log("debugging")
