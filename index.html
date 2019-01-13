@@ -148,7 +148,7 @@ function TokenSigning() {
 				var link = $(this).find('link').text();
 				var description = $(this).find('description').text();
 				var media = $(this).find('media:content').text();
-				console.log(title);
+				createRow(title, link, description, media);
 				//$('.box ul').append('<li>'+channel+'</li>');
 			});
         },
