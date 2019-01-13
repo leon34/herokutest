@@ -134,22 +134,45 @@ function TokenSigning() {
 <script>	
 	var newurl = "https://vast-refuge-72998.herokuapp.com/https://feedforall.com/sample.xml";
 	var apiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
+	var rssData = "";
 	
 	$.ajax({
         url: newurl,
         dataType: "xml",
-        success: function(xmlData){        	
+        headers: {
+    	    'x-api-key':apiKey
+	    },
+        success: function(xmlData){
+        	var rowItemsCount = 0;
+        	var currentGallery = null;
+        	
 			$(xmlData).find('item').each(function(index){
 				var title = $(this).find('title').text();
 				var link = $(this).find('link').text();
 				var description = $(this).find('description').text();
 				var media = $(this).find('media:content').text();
+				
+				if(rowItemsCount == 3 || rowItemsCount == 0){
+					var currentGallery = createNewGallery();
+					rowItemsCount = 0;
+				}
+				
+				createThumbnail(currentGallery, title, link, description, media);
+				rowItemsCount +=1;
 			});
         },
         error: function (error) {
         	console.log("aba");
-            console.log(error);
+            console.log(error)
         }
     });
-</script>
+
+	function createNewGallery(){
+		return $(".container").append("<div class=\"gallery\"></div>");
+	}
+	
+	function createThumbnail(gallery, title, link, description, media){
+		gallery.append("<div class=\"thumbnail\"><h4>Kala</h4></div>");
+	}
+	</script>
 </body></html>
