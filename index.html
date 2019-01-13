@@ -57,9 +57,9 @@
 		thumbnail.setAttribute("class", "thumbnail");
 		
 		var link = document.createElement("a");
-		link.setAttribute("href", "#");
+		link.setAttribute("href", "url");
 		link.onclick=function(){
-			alert("hi");
+			alert(this.url);
 		};
 		
 		var background = document.createElement("img");
