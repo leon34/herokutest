@@ -170,7 +170,8 @@ function TokenSigning() {
 	function createNewGallery(){
 		var gallery = document.createElement('div');
 		gallery.setAttribute("class", "gallery");
-		return $(".container").append(gallery);
+		$(".container").append(gallery);
+		return gallery;
 	}
 	
 	function createThumbnail(gallery, title, link, description, media){
