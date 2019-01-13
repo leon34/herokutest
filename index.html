@@ -59,7 +59,7 @@
 		var link = document.createElement("a");
 		link.setAttribute("href", url);
 		link.onclick=function(){
-			alert(this.url);
+			alert(this.getAttribute("url"));
 		};
 		
 		var background = document.createElement("img");
