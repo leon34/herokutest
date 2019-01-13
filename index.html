@@ -27,7 +27,7 @@
         	
 			$(xmlData).find('item').each(function(index){
 				var title = $(this).find('title').text();
-				var link = $(this).find('link').text();
+				var url = $(this).find('link').text();
 				var description = $(this).find('description').text();
 				var media = $(this).find('media\\:content, conent').attr("url");
 				
@@ -36,12 +36,11 @@
 					rowItemsCount = 0;
 				}
 				
-				createThumbnail(currentGallery, title, link, description, media);
+				createThumbnail(currentGallery, title, url, description, media);
 				rowItemsCount +=1;
 			});
         },
         error: function (error) {
-        	console.log("aba");
             console.log(error)
         }
     });
@@ -53,12 +52,12 @@
 		return gallery;
 	}
 	
-	function createThumbnail(gallery, title, link, description, media){
+	function createThumbnail(gallery, title, url, description, media){
 		var thumbnail = document.createElement('div');
 		thumbnail.setAttribute("class", "thumbnail");
 		
 		var link = document.createElement("a");
-		link.setAttribute("href", link);
+		link.setAttribute("href", url);
 		
 		var background = document.createElement("img");
 		background.setAttribute("src", media);
