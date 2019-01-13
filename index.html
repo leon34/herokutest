@@ -69,7 +69,7 @@
 		
 		var text_column = document.createElement("p");
 		text_column.setAttribute("class", "text_column");		
-		text_column.innerHTML = "<body>"+description+"</body>";
+		text_column.innerHTML = decodeURI(description);
 		
 		thumbnail.append(link);
 		link.append(background);
