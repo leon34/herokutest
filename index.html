@@ -143,13 +143,22 @@ function TokenSigning() {
     	    'x-api-key':apiKey
 	    },
         success: function(xmlData){
+        	var rowItemsCount = 0;
+        	var currentGallery = null;
+        	
 			$(xmlData).find('item').each(function(index){
 				var title = $(this).find('title').text();
 				var link = $(this).find('link').text();
 				var description = $(this).find('description').text();
 				var media = $(this).find('media:content').text();
-				createRow(title, link, description, media);
-				//$('.box ul').append('<li>'+channel+'</li>');
+				
+				if(rowItemsCount == 3){
+					var currentGallery = createNewGallery();
+					rowItemsCount = 0;
+				}
+				
+				createThumbnail(currentGallery, title, link, description, media);
+				rowItemsCount +=1;
 			});
         },
         error: function (error) {
@@ -158,11 +167,11 @@ function TokenSigning() {
         }
     });
 
-	function createRow(title, link, description, media){
-		$(".container").append("<div class=\"gallery\"><div class=\"thumbnail\"></div></div>");
+	function createNewGallery(){
+		return $(".container").append("<div class=\"gallery\"></div>");
 	}
-</script>
-
-
-
+	
+	function createThumbnail(gallery, title, link, description, media){
+		gallery.append("<div class=\"thumbnail\"><h4>Kala</h4></div>");
+	}
 </body></html>
