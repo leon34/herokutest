@@ -19,14 +19,14 @@
 	var rssUrl = "https://flipboard.com/@raimoseero/feed-nii8kd0sz.rss";
 	var proxyUrl = "https://vast-refuge-72998.herokuapp.com/";
 	var mercuryUrl = "https://mercury.postlight.com/parser?url=";
-	var herokuApiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
+	//var herokuApiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
 	var mercuryApiKey = "7UuXKMEmEIn54nosgZUN2WrNIrrzFTRcpKnaZGIm";
 	
 	$.ajax({
         url: proxyUrl+rssUrl,
         dataType: "xml",
         headers: {
-    	    'x-api-key':herokuApiKey
+    	    //'x-api-key':herokuApiKey
 	    },
         success: function(xmlData){
         	var rowItemsCount = 0;
@@ -74,9 +74,7 @@
 					'x-api-key':mercuryApiKey
 				},
 				success: function(json){
-					var modal = $(".modal");
-					modal.title=json.title;
-					displayModal();
+					console.log(json)
 				}
 			});
 			return false;
@@ -101,20 +99,6 @@
 		
 		gallery.append(thumbnail);
 	}
-	
-	function displayModal() {
-		$( "#dialog-message" ).dialog({
-		  modal: true,
-		  buttons: {
-			Ok: function() {
-			  $( this ).dialog( "close" );
-			}
-		  }
-		});
-	  };
 	</script>
-	
-	<div id="dialog-message" style="display:none;" class="modal">
-	</div>	
 	
 </body></html>
