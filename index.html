@@ -138,9 +138,6 @@ function TokenSigning() {
 	$.ajax({
         url: newurl,
         dataType: "xml",
-        headers: {
-    	    'x-api-key':apiKey
-	    },
         success: function(xmlData){        	
 			$(xmlData).find('item').each(function(index){
 				var title = $(this).find('title').text();
@@ -154,4 +151,5 @@ function TokenSigning() {
             console.log(error);
         }
     });
+</script>
 </body></html>
