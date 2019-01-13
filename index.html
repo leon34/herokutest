@@ -74,8 +74,7 @@
 					'x-api-key':mercuryApiKey
 				},
 				success: function(json){
-					console.log(json);
-					displayDialog();
+					displayModal();
 				}
 			});
 			return false;
@@ -101,7 +100,7 @@
 		gallery.append(thumbnail);
 	}
 	
-	 $( function() {
+	function displayModal() {
 		$( "#dialog-message" ).dialog({
 		  modal: true,
 		  buttons: {
@@ -110,7 +109,7 @@
 			}
 		  }
 		});
-	  } );
+	  }
 	</script>
 	
 <div id="dialog-message" title="Download complete">
