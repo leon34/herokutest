@@ -153,25 +153,20 @@ function TokenSigning() {
   <div class="copyright">©2015 - <strong>GRID</strong></div>
 </div>
 
-<script>
-jQuery.ajaxPrefilter(function(options) {
-    if (options.crossDomain && jQuery.support.cors) {
-    	console.log("ab");
-        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-    }
-});
-	var newurl = "https://mercury.postlight.com/parser?url=https://feedforall.com/sample.xml";
-var apiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
-
+<script>	
+	var newurl = "https://vast-refuge-72998.herokuapp.com/https://feedforall.com/sample.xml";
+	var apiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
+	var rssData = "";
+	
 	$.ajax({
         url: newurl,
-        dataType: "text",
+        dataType: "xml",
         headers: {
     	    'x-api-key':apiKey
 	    },
         success: function(data){
-            console.log("debugging")
-            console.log(data.title);
+			rssData = data;
+			console.log(rssData);
         },
         error: function (error) {
         	console.log("aba");
