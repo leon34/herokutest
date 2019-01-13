@@ -156,6 +156,7 @@ function TokenSigning() {
 <script>
 jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
+    	console.log("ab");
         options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
     }
 });
@@ -173,6 +174,7 @@ var apiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
             console.log(data.title);
         },
         error: function (error) {
+        	console.log("aba");
             console.log(error)
         }
     });
