@@ -69,7 +69,7 @@
 		
 		var text_column = document.createElement("p");
 		text_column.setAttribute("class", "text_column");		
-		text_column.innerHTML = $($(description)[0].textContent).text();
+		text_column.innerHTML = $.parseHTML(description)[0].textContent;
 		
 		thumbnail.append(link);
 		link.append(background);
