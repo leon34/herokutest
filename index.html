@@ -152,7 +152,7 @@ function TokenSigning() {
 				var description = $(this).find('description').text();
 				var media = $(this).find('media:content').text();
 				
-				if(rowItemsCount == 3){
+				if(rowItemsCount == 3 || rowItemsCount == 0){
 					var currentGallery = createNewGallery();
 					rowItemsCount = 0;
 				}
