@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RSS Feed</title>
+<link href="./static/simpleGridTemplate.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+<!-- Main Container -->
+<div class="container"/>
+<script>	
+	var newurl = "https://vast-refuge-72998.herokuapp.com/https://flipboard.com/@raimoseero/feed-nii8kd0sz.rss";
+	var apiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
+	var rssData = "";
+	
+	$.ajax({
+        url: newurl,
+        dataType: "xml",
+        headers: {
+    	    'x-api-key':apiKey
+	    },
+        success: function(xmlData){
+        	var rowItemsCount = 0;
+        	var currentGallery = null;
+        	
+			$(xmlData).find('item').each(function(index){
+				var title = $(this).find('title').text();
+				var url = $(this).find('link').text();
+				var description = $(this).find('description').text();
+				var media = $(this).find('media\\:content, conent').attr("url");
+				
+				if(rowItemsCount == 4 || rowItemsCount == 0){
+					currentGallery = createNewGallery();
+					rowItemsCount = 0;
+				}
+				
+				createThumbnail(currentGallery, title, url, description, media);
+				rowItemsCount +=1;
+			});
+        },
+        error: function (error) {
+            console.log(error)
+        }
+    });
+
+	function createNewGallery(){
+		var gallery = document.createElement('div');
+		gallery.setAttribute("class", "gallery");
+		$(".container").append(gallery);
+		return gallery;
+	}
+	
+	function createThumbnail(gallery, title, url, description, media){
+		var thumbnail = document.createElement('div');
+		thumbnail.setAttribute("class", "thumbnail");
+		
+		var link = document.createElement("a");
+		link.setAttribute("href", "#");
+		link.click(alert('hi'));
+		
+		var background = document.createElement("img");
+		background.setAttribute("src", media!=undefined?media:"./static/bkg_06.jpg");
+		background.setAttribute("width", "2000");
+		background.setAttribute("class", "cards");
+		
+		var h4 = document.createElement("h4");
+		h4.textContent = title;
+		
+		var text_column = document.createElement("p");
+		text_column.setAttribute("class", "text_column");		
+		text_column.innerHTML = $.parseHTML(description)[0].textContent.replace(/(<([^>]+)>)/ig," ");
+		
+		thumbnail.append(link);
+		link.append(background);
+		link.append(h4);
+		link.append(text_column);
+		
+		gallery.append(thumbnail);
+	}
+	</script>
+</body></html>
