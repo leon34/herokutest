@@ -58,7 +58,7 @@
 		
 		var link = document.createElement("a");
 		link.setAttribute("href", "#");
-		link.click(alert('hi'));
+		link.on("click", alert("hi"));
 		
 		var background = document.createElement("img");
 		background.setAttribute("src", media!=undefined?media:"./static/bkg_06.jpg");
