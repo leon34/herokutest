@@ -165,7 +165,7 @@ function TokenSigning() {
     	    'x-api-key':apiKey
 	    },
         success: function(xmlData){
-			xmlData.find('item').each(function(index){
+			$(xmlData).find('item').each(function(index){
 				var title = $(this).find('title').text();
 				var link = $(this).find('link').text();
 				var description = $(this).find('description').text();
