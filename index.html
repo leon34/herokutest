@@ -168,13 +168,26 @@ function TokenSigning() {
     });
 
 	function createNewGallery(){
-		var div = document.createElement('div');
-		div.setAttribute("class", "gallery");
-		return $(".container").append(div);
+		var gallery = document.createElement('div');
+		gallery.setAttribute("class", "gallery");
+		return $(".container").append(gallery);
 	}
 	
 	function createThumbnail(gallery, title, link, description, media){
-		gallery.append("<div class=\"thumbnail\"><h4>Kala</h4></div>");
+		var thumbnail = document.createElement('div');
+		thumbnail.setAttribute("class", "thumbnail");
+		
+		var link = document.createElement("a");
+		link.setAttribute("href", link);
+		
+		var background = document.createElement("img");
+		background.setAttribute("src", "./static/bkg_06.jpg");
+		background.setAttribute("width", "2000");
+		background.setAttribute("class", "cards");
+		
+		thumbnail.append(link);
+		link.append(background);
+		gallery.append(thumbnail);
 	}
 	</script>
 </body></html>
