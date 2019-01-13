@@ -74,7 +74,7 @@
 					'x-api-key':mercuryApiKey
 				},
 				success: function(json){
-					$(".modal").text(json);
+					$(".modal").text(json.text());
 					displayModal();
 				}
 			});
