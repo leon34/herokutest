@@ -63,7 +63,7 @@
 		link.onclick=function(){
 		console.log("my url:" + mercuryUrl+this.href);
 		$.ajax({
-				url: mercuryUrl+this.url,
+				url: mercuryUrl+this.href,
 				dataType: "json",
 				headers: {
 					'x-api-key':mercuryApiKey
