@@ -188,11 +188,23 @@ function TokenSigning() {
 		var h4 = document.createElement("h4");
 		h4.textContent = title;
 		
+		var text_column = document.createElement("p");
+		text_column.setAttribute("class", "text_column");		
+		text_column.textContent = description;
+		
 		thumbnail.append(link);
 		link.append(background);
 		
 		thumbnail.append(h4);
+		thumbnail.append(text_column);
+		
 		gallery.append(thumbnail);
 	}
 	</script>
 </body></html>
+
+    <div class="thumbnail"> <a href="https://martin-valtmann-valdson.herokuapp.com/lolo.html?fbclid=IwAR3Ui0xSoqQo1ZJ6gOZj_0nSQdMI2f9n6ysCrQE_FuVeeBcekhi13YSUT-Y#"><img src="./static/bkg_06.jpg" alt="" width="2000" class="cards"></a>
+      <h4>TITLE</h4>
+      <p class="tag">HTML, CSS, JS, WordPress</p>
+      <p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
