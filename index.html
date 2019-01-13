@@ -147,14 +147,6 @@ function TokenSigning() {
 				var link = $(this).find('link').text();
 				var description = $(this).find('description').text();
 				var media = $(this).find('media:content').text();
-				
-				if(rowItemsCount == 3 || rowItemsCount == 0){
-					var currentGallery = createNewGallery();
-					rowItemsCount = 0;
-				}
-				
-				createThumbnail(currentGallery, title, link, description, media);
-				rowItemsCount +=1;
 			});
         },
         error: function (error) {
@@ -162,12 +154,4 @@ function TokenSigning() {
             console.log(error);
         }
     });
-
-	function createNewGallery(){
-		return $(".container").append("<div class=\"gallery\"></div>");
-	}
-	
-	function createThumbnail(gallery, title, link, description, media){
-		gallery.append("<div class=\"thumbnail\"><h4>Kala</h4></div>");
-	}
 </body></html>
