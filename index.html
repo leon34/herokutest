@@ -164,9 +164,15 @@ function TokenSigning() {
         headers: {
     	    'x-api-key':apiKey
 	    },
-        success: function(data){
-			rssData = data;
-			console.log("Minu data: "+rssData);
+        success: function(xmlData){
+			$.parseXML(xmlData).find('item').each(function(index){
+				var title = $(this).find('title').text();
+				var link = $(this).find('link').text();
+				var description = $(this).find('description').text();
+				var media = $(this).find('media:content').text();
+				console.log(title);
+				//$('.box ul').append('<li>'+channel+'</li>');
+			});
         },
         error: function (error) {
         	console.log("aba");
