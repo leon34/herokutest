@@ -168,7 +168,9 @@ function TokenSigning() {
     });
 
 	function createNewGallery(){
-		return $(".container").append("<div class=\"gallery\"></div>");
+		var div = document.createElement('div');
+		div.setAttribute("class", "gallery");
+		return $(".container").append(div);
 	}
 	
 	function createThumbnail(gallery, title, link, description, media){
