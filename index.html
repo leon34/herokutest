@@ -144,7 +144,7 @@ function TokenSigning() {
 	    },
         success: function(xmlData){
         	var rowItemsCount = 0;
-        	var currentGallery = null;
+        	var currentGallery;
         	
 			$(xmlData).find('item').each(function(index){
 				var title = $(this).find('title').text();
