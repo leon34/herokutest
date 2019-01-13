@@ -61,6 +61,7 @@
 		var link = document.createElement("a");
 		link.setAttribute("href", url);
 		link.onclick=function(){
+		console.log("my url:" + mercuryUrl+this.url);
 		$.ajax({
 				url: mercuryUrl+this.url,
 				dataType: "json",
