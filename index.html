@@ -134,7 +134,6 @@ function TokenSigning() {
 <script>	
 	var newurl = "https://vast-refuge-72998.herokuapp.com/https://feedforall.com/sample.xml";
 	var apiKey = "2MLECOYvoMvDLHdDiHW8jymi1s8IGLCZcIpIx5On";
-	var rssData = "";
 	
 	$.ajax({
         url: newurl,
@@ -142,10 +141,7 @@ function TokenSigning() {
         headers: {
     	    'x-api-key':apiKey
 	    },
-        success: function(xmlData){
-        	var rowItemsCount = 0;
-        	var currentGallery;
-        	
+        success: function(xmlData){        	
 			$(xmlData).find('item').each(function(index){
 				var title = $(this).find('title').text();
 				var link = $(this).find('link').text();
@@ -163,7 +159,7 @@ function TokenSigning() {
         },
         error: function (error) {
         	console.log("aba");
-            console.log(error)
+            console.log(error);
         }
     });
 
